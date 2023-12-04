@@ -1,0 +1,288 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&family=Karla&display=swap');
+
+/* variables declared here - these are the colors for our pages, as well as the font stacks and sizes. */
+:root {
+    --black: #171321;
+    --dkblue: #0d314b;
+    --plum: #4b0d49;
+    --hotmag: #ff17e4;
+    --magenta: #e310cb;
+    --aqua: #86fbfb;
+    --white: #f7f8fa;
+    --font-size: 1.3rem;
+    --mono: "Inconsolata", monospace;
+    --sans: Karla, sans-serif;
+}
+/* border box model: https://css-tricks.com/box-sizing/ */
+html {
+    box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+img {
+    width: 100%;
+}
+
+ul {
+    padding-inline-start: 0px;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: var(--mono);
+    background-color: var(--black);
+    color: var(--white);
+    font-size: var(--font-size);
+}
+
+h1,h2,h3,h4,h5,h6 {
+    margin: 0;
+    font-family: var(--sans);
+}
+
+a {
+    color: var(--magenta);
+}
+
+a:hover {
+    color: var(--hotmag);
+    text-decoration: none;
+}
+
+nav {
+    padding: 2rem;
+    font: var(--mono);
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    max-width: 1480px;
+}
+
+nav a {
+    color: var(--white);
+    text-decoration: none;
+    display: block;
+}
+
+nav h1 {
+    display: inline-block;
+}
+
+nav li:first-child {
+    flex-basis: 100%;
+    text-align: center;
+}
+
+.button {
+    background-color: var(--magenta);
+    color: var(--white);
+    font-family: var(--mono);
+    font-size: var(--font-size);
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: 1px solid var(--magenta);
+}
+
+.button:hover {
+    color: var(--white);
+    background-color: var(--hotmag);
+    border: 1px solid var(--hotmag);
+    cursor: pointer;
+}
+
+nav [class*="fa-"] {
+    color: var(--aqua);
+    font-size: 1.6rem;
+}
+
+nav [class*="fa-"]:hover {
+    color: var(--magenta);
+}
+
+section {
+    padding: 4rem;
+}
+
+#intro {
+    max-width: 1480px;
+}
+
+#intro p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+#intro span {
+    font-size: 4rem;
+    color: var(--aqua);
+    display: block;
+}
+
+#intro h2 {
+    font-size: 4rem;
+}
+
+#projects {
+    background-color: var(--dkblue);
+}
+
+#projects h2 {
+    font-size: 3rem;
+    padding-bottom: 3rem;
+}
+
+.project {
+    padding: 2rem 0;
+}
+
+.project-title {
+    color: var(--aqua);
+}
+
+.project-description {
+    background-color: var(--black);
+    border-radius: 16px;
+    padding: 2rem;
+}
+
+.project ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 8px;
+}
+
+.project-image {
+    padding: 16px;
+    border-top: 1px solid var(--aqua);
+    border-left: 1px solid var(--aqua);
+    border-radius: 24px;
+    margin-bottom: 1rem;
+}
+
+/* .project:nth-child(odd) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.project:nth-child(odd) .project-details, .project:nth-child(odd) .project-details ul {
+    text-align: right;
+    justify-content: flex-end;
+}
+*/
+
+#contact {
+    background-color: var(--plum);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#contact p {
+    width: 50%;
+}
+
+footer {
+    padding: 2rem 4rem;
+    text-align: center;
+}
+
+
+footer ul {
+    list-style-type: none;
+    display: flex;
+    gap: 16px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+}
+
+footer [class*="fa-"] {
+    color: var(--magenta);
+    font-size: 2rem;
+}
+
+footer [class*="fa-"]:hover {
+    color: var(--hotmag);
+}
+
+.divider {
+    background: linear-gradient(90deg, rgba(255,23,228,1) 0%, rgba(134,251,251,1) 100%);
+    width: 100%;
+    height: 4px;
+}
+
+#\#about {
+    background-color: var(--dkblue);
+}
+
+
+/* media queries */
+
+@media (min-width: 800px){
+
+    nav li:first-child {
+        flex-basis: auto;
+        text-align: left;
+        margin-right: auto;
+    }
+
+}
+
+@media (min-width: 768px) {
+    .project {
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        justify-content: center;
+        align-items: start;
+        gap: 24px;
+        padding: 2rem 0;
+    }
+
+    .project-details {
+        order: 2;
+        text-align: right;
+        grid-column: 5/11;
+        grid-row: 1/2;
+}
+
+    .project-image {
+        grid-column: 1/6;
+        grid-row: 1/2;
+    }
+
+    article.project ul {
+        justify-content: flex-end;
+    }
+
+    article.project.reverse .project-details  {
+        grid-column: 1/7;
+        order: 2;
+        text-align: left;
+      }
+      article.project.reverse .project-image {
+        grid-column: 6/11;
+        grid-row: 1/2;
+      }
+      article.project.reverse ul {
+        justify-content: flex-start;
+      }
+
+}
